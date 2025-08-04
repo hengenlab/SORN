@@ -293,7 +293,12 @@ def run_parallel_simulations(num_sims=8, num_processes=None, show_output=True, o
     print("Root directory:", root_dir)
     
     # Find Python 2.7 and verify files
-    python_exe = find_python27()
+    # for ris
+    if os.path.exists('/home/cookie/anaconda3/envs/py27/bin/python2.7'):
+        python_exe =  '/home/cookie/anaconda3/envs/py27/bin/python2.7'
+    else:
+        python_exe = find_python27()
+
     print("Using Python:", python_exe)
     
     test_single = os.path.join(common_dir, "test_single.py")
